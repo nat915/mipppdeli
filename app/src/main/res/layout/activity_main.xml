@@ -17,8 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:fontFamily="@font/robium"
             android:textSize="50sp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="185dp"
             android:layout_marginLeft="25dp"
             />
 
@@ -26,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ingresa con tu correo y contraseña"
+            android:fontFamily="@font/montser"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="5dp"
             />
@@ -34,9 +36,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Email"
+            android:fontFamily="@font/montser"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:inputType="textEmailAddress"
             android:textSize="15sp"
             />
@@ -45,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Password"
+            android:fontFamily="@font/montser"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
@@ -66,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Iniciar Sesion"
+            android:fontFamily="@font/robium"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="200dp"
@@ -83,6 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Registrate aqui"
+            android:fontFamily="@font/robium"
             android:layout_marginBottom="20dp"
             />
 
