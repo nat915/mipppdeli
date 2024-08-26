@@ -34,7 +34,7 @@
             android:text="Ingresa con tu correo y contraseña"
             android:fontFamily="@font/montser"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             />
 
         <EditText
@@ -44,7 +44,7 @@
             android:fontFamily="@font/montser"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:inputType="textEmailAddress"
             android:textSize="15sp"
             android:padding="15dp"
@@ -58,7 +58,7 @@
             android:fontFamily="@font/montser"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:inputType="textPassword"
             android:textSize="15sp"
             android:padding="15dp"
