@@ -47,6 +47,8 @@
             android:layout_marginTop="10dp"
             android:inputType="textEmailAddress"
             android:textSize="15sp"
+            android:padding="15dp"
+            android:background="@drawable/edittext_custom"
             />
 
         <EditText
@@ -59,6 +61,8 @@
             android:layout_marginTop="10dp"
             android:inputType="textPassword"
             android:textSize="15sp"
+            android:padding="15dp"
+            android:background="@drawable/edittext_custom"
             />
 
     </LinearLayout>
