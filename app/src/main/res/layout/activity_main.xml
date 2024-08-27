@@ -38,6 +38,7 @@
             />
 
         <EditText
+            android:id="@+id/edittext_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Email"
@@ -52,6 +53,7 @@
             />
 
         <EditText
+            android:id="@+id/edittext_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Password"
@@ -76,9 +78,10 @@
         >
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iniciar Sesion"
+            android:text="INICIAR SESION"
             android:fontFamily="@font/robium"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
