@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         val email = editTextEmail?.text.toString()
         val password = editTextPassword?.text.toString()
 
-        if(isValirForm(email, password)){
+        if(isValidForm(email,password)){
             Toast.makeText(this, "El formulario es valido", Toast.LENGTH_LONG).show()
         }
         else{
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun isValirForm(email: String, password: String): Boolean{
+    private fun isValidForm(email: String, password: String): Boolean{
 
         if(email.isBlank()){
             return false
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             return false
         }
 
-        if(email.isEmailValid()){
+        if(!email.isEmailValid()){
             return false
         }
 
