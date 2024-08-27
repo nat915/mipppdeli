@@ -1,5 +1,6 @@
 package com.apsel.mipppdeli.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -17,5 +18,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         imageViewGoToRegister = findViewById(R.id.imageview_go_to_register)
+
+        imageViewGoToRegister?.setOnClickListener { goToRegister() }
+    }
+
+    private fun goToRegister(){
+        val i = Intent(this, RegisterActivity::class.java)
+        startActivity(i)
     }
 }
