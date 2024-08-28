@@ -75,7 +75,8 @@ class RegisterActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
 
                         Toast.makeText(this@RegisterActivity, response.message(), Toast.LENGTH_LONG).show()
-
+                        Log.d(TAG, "Response: ${response}")
+                        Log.d(TAG, "Body: ${response}")
 
                     }
 
