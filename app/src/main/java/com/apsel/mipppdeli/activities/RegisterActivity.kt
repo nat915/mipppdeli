@@ -11,9 +11,12 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.apsel.mipppdeli.R
-
-
-
+import com.apsel.mipppdeli.models.ResponseHttp
+import com.apsel.mipppdeli.models.User
+import com.apsel.mipppdeli.providers.UsersProvider
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -28,6 +31,8 @@ class RegisterActivity : AppCompatActivity() {
     var editTextPassword: EditText? = null
     var editTextConfirmPassword: EditText? = null
     var buttonRegister: Button? = null
+
+    var usersProvider = UsersProvider()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +63,29 @@ class RegisterActivity : AppCompatActivity() {
             val confirmPassword = editTextConfirmPassword?.text.toString()
 
             if (isValidForm(name = name,lastname = lastname, email = email, phone = phone, password = password, confirmPassword = confirmPassword)){
-                Toast.makeText(this, "El formulario es valido", Toast.LENGTH_SHORT).show()
+
+                val user = User(
+                    name = name,
+                    lastname = lastname,
+                    email = email,
+                    phone = phone,
+                    password = password
+                )
+                usersProvider.register(user)?.enqueue(object: Callback<ResponseHttp> {
+                    override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
+
+                        Toast.makeText(this@RegisterActivity, response.message(), Toast.LENGTH_LONG).show()
+
+
+                    }
+
+                    override fun onFailure(p0: Call<ResponseHttp>, t: Throwable) {
+                        Log.d(TAG, "Se produjo un error ${t.message}")
+                        Toast.makeText(this@RegisterActivity, "Se produjo un error ${t.message}", Toast.LENGTH_LONG).show()
+                    }
+
+                })
+
             }
             
 
