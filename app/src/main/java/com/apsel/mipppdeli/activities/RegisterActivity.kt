@@ -74,8 +74,10 @@ class RegisterActivity : AppCompatActivity() {
                 usersProvider.register(user)?.enqueue(object: Callback<ResponseHttp> {
                     override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
 
-                        Toast.makeText(this@RegisterActivity, response.message(), Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@RegisterActivity, response.body()?.message, Toast.LENGTH_LONG).show()
 
+                        Log.d(TAG, "Response: ${response}")
+                        Log.d(TAG, "body: ${response.body()}")
 
                     }
 
@@ -87,14 +89,6 @@ class RegisterActivity : AppCompatActivity() {
                 })
 
             }
-            
-
-            Log.d(TAG, "El nombre es: $name" )
-            Log.d(TAG, "El apellido es: $lastname" )
-            Log.d(TAG, "El email es: $email" )
-            Log.d(TAG, "El telofono es: $phone" )
-            Log.d(TAG, "El password es: $password" )
-            Log.d(TAG, "El confirm password es: $confirmPassword" )
 
     }
 

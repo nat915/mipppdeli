@@ -5,7 +5,7 @@ import com.apsel.mipppdeli.routes.UsersRoutes
 class ApiRoutes {
 
 
-    val API_URL = "http://192.168.56.1:3000/api"
+    val API_URL = "http://192.168.56.1:3000/api/"
     val retrofit = RetrofitClient()
 
     fun getUsersRoutes(): UsersRoutes {
