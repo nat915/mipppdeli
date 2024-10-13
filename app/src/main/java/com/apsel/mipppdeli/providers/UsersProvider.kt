@@ -1,5 +1,6 @@
 package com.apsel.mipppdeli.providers
 
+import android.provider.ContactsContract.CommonDataKinds.Email
 import com.apsel.mipppdeli.api.ApiRoutes
 import com.apsel.mipppdeli.models.ResponseHttp
 import com.apsel.mipppdeli.models.User
@@ -19,5 +20,8 @@ class UsersProvider {
         return usersRoutes?.register(user)
     }
 
+    fun login(email: String, password: String): Call<ResponseHttp>? {
+        return usersRoutes?.login(email, password)
+    }
 
 }
