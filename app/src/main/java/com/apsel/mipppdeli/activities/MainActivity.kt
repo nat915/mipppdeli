@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.apsel.mipppdeli.R
+import com.apsel.mipppdeli.activities.client.home.ClientHomeActivity
 import com.apsel.mipppdeli.models.ResponseHttp
 import com.apsel.mipppdeli.models.User
 import com.apsel.mipppdeli.providers.UsersProvider
@@ -44,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         imageViewGoToRegister?.setOnClickListener { goToRegister() }
         buttonLogin?.setOnClickListener { login() }
 
+        getUserFromSession()
+
     }
 
     private fun login(){
@@ -60,6 +63,8 @@ class MainActivity : AppCompatActivity() {
                     if (response.body()?.isSuccess == true) {
 
                         Toast.makeText(this@MainActivity, response.body()?.message, Toast.LENGTH_LONG).show()
+                        saveUserInSession(response.body()?.data.toString())
+                        goToClientHome()
                     }
                     else {
                         Toast.makeText(this@MainActivity, "Los datos no son correctos", Toast.LENGTH_LONG).show()
@@ -80,13 +85,46 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "No es valido", Toast.LENGTH_LONG).show()
         }
 
-        Log.d("MainActivity", "El email es: $email" )
-        Log.d("MainActivity", "El password es: $password" )
+    //    Log.d("MainActivity", "El email es: $email" )
+    //    Log.d("MainActivity", "El password es: $password" )
     }
+
+    private fun goToClientHome(){
+        val i = Intent(this, ClientHomeActivity::class.java)
+        startActivity(i)
+    }
+
+
+    private fun saveUserInSession(data: String) {
+        val sharedPref = SharedPref(this)
+        val gson = Gson()
+        val user = gson.fromJson(data, User::class.java)
+        sharedPref.save("user", user)
+
+
+
+    }
+
 
     fun String.isEmailValid(): Boolean{
         return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
     }
+
+    private fun getUserFromSession() {
+        val sharedPref = SharedPref(this)
+        val gson = Gson()
+
+        if (!sharedPref.getData("user").isNullOrBlank()){
+         //si el usuario existe
+            val user = gson.fromJson(sharedPref.getData("user"), User::class.java)
+
+            goToClientHome()
+        }
+    }
+
+
+
+
 
 
     private fun isValidForm(email: String, password: String): Boolean{
